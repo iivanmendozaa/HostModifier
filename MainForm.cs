@@ -19,7 +19,7 @@ namespace HostModifier
         private void btLocal_Click(object sender, EventArgs e)
         {
 
-            ModifyHostsToAddLoalDomain(appSettings.HostsBasePath, appSettings.LineToAdd);
+            ModifyHostsToAddLocalDomain(appSettings.HostsBasePath, appSettings.LineToAdd);
 
         }
 
@@ -37,7 +37,7 @@ namespace HostModifier
         public void RestoreHostsFile(string filepath)
         {       
             var lines = File.ReadAllLines(filepath);
-            File.WriteAllLines(@"C:\\Windows\\System32\\drivers\\etc\\hosts2", lines.Take(lines.Length).ToArray());
+            File.WriteAllLines(@"C:\\Windows\\System32\\drivers\\etc\\hosts", lines.Take(lines.Length).ToArray());
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace HostModifier
         /// <summary>
         /// Add line to host file according to Settings file property.
         /// </summary>
-        public void ModifyHostsToAddLoalDomain(string filepath, string lineToAdd) {
+        public void ModifyHostsToAddLocalDomain(string filepath, string lineToAdd) {
 
             var lines = File.ReadAllLines(filepath);
             File.WriteAllLines(@"C:\\Windows\\System32\\drivers\\etc\\hosts", lines.Take(lines.Length).ToArray());
